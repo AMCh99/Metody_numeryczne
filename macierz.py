@@ -1,34 +1,36 @@
-macierz = [ [1,2,3],
-		 	[4,5,0],
-			[7,8,9]]
+macierz = [ [0,2,3,0],
+		 	[4,0,0,0],
+			[7,8,0,0],
+            [6,0,1,0]]
 
-stopien = len(macierz)
 def wyznacznik(macierz):
-	wyz = 0
+    stopien = len(macierz)
+    wyz = 0
 	
-	for x in range(stopien):
-		w1 = 1
-		for y in range(stopien):
-			if x + y < stopien:
-				m = macierz[y][x+y]
-			else:
-				m = macierz[y][x+y-stopien]
+    for x in range(stopien):
+        w1 = 1
+        for y in range(stopien):
+            if x + y < stopien:
+                m = macierz[y][x+y]
+            else:
+                m = macierz[y][x+y-stopien]
 			
-			w1 = w1 * m
-		wyz += w1
+            w1 = w1 * m
+        wyz += w1
 	
-	
-	for x in range(stopien):
-		w1 = 1
-		for y in range(stopien):
-			if x + y < stopien:
-				m = macierz[-y][x+y]
-			else:
-				m = macierz[-y][x+y-stopien]
+    for x in range(stopien):
+        w1 = 1
+        for y in range(stopien):
+            if x + y < stopien:
+                m = macierz[-y][x+y]
+            else:
+                m = macierz[-y][x+y-stopien]
 			
-			w1 = w1 * m	
-		wyz -= w1
+            w1 = w1 * m	
+        wyz -= w1
+    
+    return wyz
 
-wyznacznik(macierz)
+print(wyznacznik(macierz))
 
 
